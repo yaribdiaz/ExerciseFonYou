@@ -15,7 +15,11 @@ export const useGetData = (page, triggerSearch) => {
 
   const getData = async () => {
     try {
-      const {data} = await axios(`${import.meta.env.VITE_API_CHARACTER}/?page=${currentPage}&name=${search}&status=alive`)
+      const {data} = await axios(`${import.meta.env.VITE_API_CHARACTER}/?page=${currentPage}&name=${search}&status=alive`, {
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          'Access-Control-Allow-Origin': '*' // Could work and fix the previous problem, but not in all APIs
+        }})
 
         handleSetData({data})
         handleSetTriggerSearch(false)
