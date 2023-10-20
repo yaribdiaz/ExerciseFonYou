@@ -16,13 +16,12 @@ export const useGetData = (page, triggerSearch) => {
 
   const getData = async () => {
     try {
-            const {data} = await axios(`${import.meta.env.VITE_API_CHARACTER}/?page=${currentPage}&name=${search}&status=alive`, {
+        handleSetLoading(true)
+        const {data} = await axios(`${import.meta.env.VITE_API_CHARACTER}/?page=${currentPage}&name=${search}&status=alive`, {
         headers: {
           'Content-Type': 'application/json;charset=UTF-8',
           'Access-Control-Allow-Origin': '*' // Could work and fix the previous problem, but not in all APIs
         }})
-
-      handleSetLoading(true)
       // const response = await fetch(`${import.meta.env.VITE_API_CHARACTER}/?page=${currentPage}&name=${search}&status=alive`)
       //   const data = await response.json()
         
