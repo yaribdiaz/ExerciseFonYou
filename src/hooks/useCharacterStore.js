@@ -8,7 +8,8 @@ import {
     resetPagination,
     setError,
     setModal,
-    setModalData
+    setModalData,
+    setIsLoading
     }from "../store/character/characterSlice"
     
 
@@ -23,7 +24,8 @@ export const useCharacterStore = () => {
         triggerSearch,
         isError,
         openModal,
-        modalData
+        modalData,
+        isLoading
     } = useSelector(state => state.character)
 
 
@@ -63,6 +65,10 @@ export const useCharacterStore = () => {
         dispatch(setModalData(data))
     }
 
+    const handleSetLoading = (boolean) => {
+        dispatch(setIsLoading(boolean))
+    }
+
     return {
         handleSetSearch,
         handleSetData,
@@ -79,7 +85,9 @@ export const useCharacterStore = () => {
         handleModal,
         openModal,
         handleSetModalData,
-        modalData
+        modalData,
+        handleSetLoading,
+        isLoading
     }
 }
 

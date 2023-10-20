@@ -46,10 +46,25 @@ export const characterSlice = createSlice({
       },
       setModalData : (state, action) => {
         state.modalData = action.payload
+      },
+      setIsLoading : (state, action) => {
+        state.isLoading = action.payload
       }
   }
 })
 
-export const {setModalData ,setModal, setError, setSearch, setTriggerSearch, setCharacterData, nextPage, previousPage, resetPagination } = characterSlice.actions
+export const {
+  setModalData,
+  setModal,
+  setError,
+  setSearch, 
+  setTriggerSearch, 
+  setCharacterData,
+  setIsLoading, 
+  nextPage, 
+  previousPage, 
+  resetPagination, 
+  isLoading
+} = characterSlice.actions
 
 export default characterSlice.reducer
